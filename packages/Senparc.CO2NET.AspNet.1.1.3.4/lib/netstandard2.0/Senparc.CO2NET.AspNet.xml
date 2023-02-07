@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Senparc.CO2NET.AspNet</name>
+    </assembly>
+    <members>
+        <member name="P:Senparc.CO2NET.AspNetConfig.HostingEnvironment">
+            <summary>
+            Web hosting environment
+            </summary>
+        </member>
+        <member name="T:Senparc.CO2NET.AspNet.Register">
+            <summary>
+            Senparc.CO2NET.AspNet 基础信息注册
+            </summary>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.Register.UseSenparcGlobal(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Hosting.IHostEnvironment,Senparc.CO2NET.SenparcSetting,System.Action{Senparc.CO2NET.RegisterServices.RegisterService},System.Boolean,System.Func{System.Collections.Generic.IList{Senparc.CO2NET.Cache.IDomainExtensionCacheStrategy}})">
+            <summary>
+            开始 Senparc.CO2NET 初始化参数流程（ASP.NET Core)
+            </summary>
+            <param name="registerService"></param>
+            <param name="env">IHostingEnvironment（.NET Core 2.0） 或 IWebHostEnvironment（.NET Core 3.0+）</param>
+            <param name="senparcSetting">SenparcSetting 对象</param>
+            <param name="registerConfigure">RegisterService 设置</param>
+            <param name="autoScanExtensionCacheStrategies">是否自动扫描全局的扩展缓存（会增加系统启动时间）</param>
+            <param name="extensionCacheStrategiesFunc"><para>需要手动注册的扩展缓存策略</para>
+            <para>（LocalContainerCacheStrategy、RedisContainerCacheStrategy、MemcacheContainerCacheStrategy已经自动注册），</para>
+            <para>如果设置为 null（注意：不适委托返回 null，是整个委托参数为 null），则自动使用反射扫描所有可能存在的扩展缓存策略</para></param>
+            <returns></returns>
+        </member>
+        <member name="T:Senparc.CO2NET.AspNet.RegisterServices.RegisterService">
+            <summary>
+            Senparc.CO2NET 快捷注册流程
+            </summary>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.RegisterServices.RegisterService.Start(Microsoft.Extensions.Hosting.IHostEnvironment,Senparc.CO2NET.SenparcSetting)">
+            <summary>
+            开始 Senparc.CO2NET SDK 初始化参数流程（.NET Core），支持 ASP.NET Core
+            </summary>
+            <param name="env">IHostingEnvironment，控制台程序可以输入null，</param>
+            <param name="senparcSetting"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility">
+            <summary>
+            HTTP 请求工具类
+            </summary>
+        </member>
+        <member name="P:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.SenparcHttpClientWebProxy">
+            <summary>
+            作用于 SenparcHttpClient 的 WebProxy（需要在 AddSenparcGlobalServices 之前定义）
+            </summary>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.SetHttpProxy(System.String,System.String,System.String,System.String)">
+            <summary>
+            设置Web代理
+            </summary>
+            <param name="host"></param>
+            <param name="port"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.RemoveHttpProxy">
+            <summary>
+            清除Web代理状态
+            </summary>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.GetRequestMemoryStream(Microsoft.AspNetCore.Http.HttpRequest,System.Nullable{System.Boolean})">
+            <summary>
+            从 Request.Body 中读取流，并复制到一个独立的 MemoryStream 对象中
+            </summary>
+            <param name="request"></param>
+            <param name="allowSynchronousIO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.CheckValidationResult(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            验证服务器证书
+            </summary>
+            <param name="sender"></param>
+            <param name="certificate"></param>
+            <param name="chain"></param>
+            <param name="errors"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.CheckValidationResult(System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            验证服务器证书
+            </summary>
+            <param name="request"></param>
+            <param name="certificate"></param>
+            <param name="chain"></param>
+            <param name="sslPolicyErrors"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.HttpClientHeader(System.Net.Http.HttpClient,System.String,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32)">
+            <summary>
+            设置HTTP头
+            </summary>
+            <param name="client"></param>
+            <param name="refererUrl"></param>
+            <param name="useAjax">是否使用Ajax</param>
+            <param name="headerAddition">header附加信息</param>
+            <param name="timeOut"></param>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.FillFormDataStream(System.Collections.Generic.Dictionary{System.String,System.String},System.IO.Stream)">
+            <summary>
+            填充表单信息的Stream
+            </summary>
+            <param name="formData"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.FillFormDataStreamAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.IO.Stream)">
+            <summary>
+            填充表单信息的Stream
+            </summary>
+            <param name="formData"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.GetRequestMemoryStreamAsync(Microsoft.AspNetCore.Http.HttpRequest,System.Nullable{System.Boolean})">
+            <summary>
+            【异步方法】从 Request.Body 中读取流，并复制到一个独立的 MemoryStream 对象中
+            </summary>
+            <param name="request"></param>
+            <param name="allowSynchronousIO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.GetQueryString(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            组装QueryString的方法
+            参数之间用&amp;连接，首位没有符号，如：a=1&amp;b=2&amp;c=3
+            </summary>
+            <param name="formData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Senparc.CO2NET.Utilities.BrowserUtility">
+            <summary>
+            浏览器公共类
+            </summary>
+        </member>
+        <member name="M:Senparc.CO2NET.Utilities.BrowserUtility.GetUserAgent(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            获取 Headers 中的 User-Agent 字符串
+            </summary>
+            <param name="httpRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.RequestExtension">
+            <summary>
+            RequestExtension
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.RequestExtension.IsLocal(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            是否是本地请求
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.RequestExtension.IsAjaxRequest(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            Determines whether the specified HTTP request is an AJAX request.
+            </summary>
+            
+            <returns>
+            true if the specified HTTP request is an AJAX request; otherwise, false.
+            </returns>
+            <param name="request">The HTTP request.</param><exception cref="T:System.ArgumentNullException">The <paramref name="request"/> parameter is null (Nothing in Visual Basic).</exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.RequestExtension.PathAndQuery(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            通常是以/开头的完整路径
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.RequestExtension.UrlReferrer(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            获取来源页面
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.RequestExtension.AbsoluteUri(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            返回绝对地址
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.RequestExtension.UserAgent(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            获取客户端信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.RequestExtension.UserHostAddress(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            获取客户端地址（IP）
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

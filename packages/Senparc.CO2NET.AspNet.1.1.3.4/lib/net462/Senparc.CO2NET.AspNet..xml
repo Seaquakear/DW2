@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Senparc.CO2NET.AspNet</name>
+    </assembly>
+    <members>
+        <member name="T:Senparc.CO2NET.AspNet.Register">
+            <summary>
+            Senparc.CO2NET.AspNet 基础信息注册
+            </summary>
+        </member>
+        <member name="T:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility">
+            <summary>
+            HTTP 请求工具类
+            </summary>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.SetHttpProxy(System.String,System.String,System.String,System.String)">
+            <summary>
+            设置Web代理
+            </summary>
+            <param name="host"></param>
+            <param name="port"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.RemoveHttpProxy">
+            <summary>
+            清除Web代理状态
+            </summary>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.CheckValidationResult(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            验证服务器证书
+            </summary>
+            <param name="sender"></param>
+            <param name="certificate"></param>
+            <param name="chain"></param>
+            <param name="errors"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.HttpClientHeader(System.Net.HttpWebRequest,System.String,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32)">
+            <summary>
+            设置HTTP头
+            </summary>
+            <param name="request"></param>
+            <param name="refererUrl"></param>
+            <param name="useAjax">是否使用Ajax</param>
+            <param name="headerAddition">header附加信息</param>
+            <param name="timeOut"></param>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.FillFormDataStream(System.Collections.Generic.Dictionary{System.String,System.String},System.IO.Stream)">
+            <summary>
+            填充表单信息的Stream
+            </summary>
+            <param name="formData"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.FillFormDataStreamAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.IO.Stream)">
+            <summary>
+            填充表单信息的Stream
+            </summary>
+            <param name="formData"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Senparc.CO2NET.AspNet.HttpUtility.RequestUtility.GetQueryString(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            组装QueryString的方法
+            参数之间用&amp;连接，首位没有符号，如：a=1&amp;b=2&amp;c=3
+            </summary>
+            <param name="formData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Senparc.CO2NET.Utilities.BrowserUtility">
+            <summary>
+            浏览器公共类
+            </summary>
+        </member>
+        <member name="M:Senparc.CO2NET.Utilities.BrowserUtility.GetUserAgent(System.Web.HttpRequestBase)">
+            <summary>
+            获取 Headers 中的 User-Agent 字符串
+            </summary>
+            <param name="httpRequest"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
